@@ -1,0 +1,22 @@
+node_modules
+.yarn/install-state.gz
+.env
+
+# Hardhat files
+/cache
+/artifacts
+
+# TypeChain files
+/typechain
+/typechain-types
+
+# Compiled files
+/dist
+
+# solidity-coverage files
+/coverage
+/coverage.json
+
+# Typescript files
+**/*.js
+*.tgz
