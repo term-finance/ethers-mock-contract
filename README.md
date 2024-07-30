@@ -1,4 +1,4 @@
-# `ethers-mock-contract`
+# `@term-finance/ethers-mock-contract`
 
 This project adds the ability to deploy a mock contract to the blockchain using
 the `hardhat-ethers` plugin for `hardhat`.
@@ -10,13 +10,13 @@ To install this project, run the following commands:
 `npm`:
 
 ```shell
-npm install --save-dev ethers-mock-contract
+npm install --save-dev @term-finance/ethers-mock-contract
 ```
 
 `yarn`:
 
 ```shell
-yarn add --dev ethers-mock-contract
+yarn add --dev @term-finance/ethers-mock-contract
 ```
 
 ## Usage
@@ -24,18 +24,19 @@ yarn add --dev ethers-mock-contract
 To use this project, add the following to your `hardhat.config.js`:
 
 ```javascript
-require("ethers-mock-contract");
+require("@term-finance/ethers-mock-contract");
 ```
 
 Then, you can write tests that deploy a mock contract to the blockchain:
 
 ```typescript
 import hre from "hardhat";
-import { deployMock } from "ethers-mock-contract";
+import { deployMock } from "@term-finance/ethers-mock-contract";
 
 describe("MyContract", () => {
   it("should deploy a mock contract", async () => {
-    const mockContract = await deployMock(abi);
+    const [signer] = await hre.ethers.getSigners();
+    const mockContract = await deployMock(abi, signer);
 
     // Add expectations to mock
     await deployMock.setup(
