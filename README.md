@@ -51,7 +51,7 @@ describe("MyContract", () => {
         abi: abi[1],
         inputs: [2n, 3n],
         reason: "revert reason",
-      }
+      },
       // ...
     );
 
