@@ -1,5 +1,5 @@
 {
-  "name": "ethers-mock-contract",
+  "name": "@term-finance/ethers-mock-contract",
   "description": "Adds a simple mock contract for hardhat-ethers",
   "keywords": [
     "ethers",
