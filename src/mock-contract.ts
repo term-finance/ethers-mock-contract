@@ -33,13 +33,13 @@ export type MockContract<C extends BaseContract> = C & {
 
 export const deployMock = async <C extends BaseContract>(
   abi: InterfaceAbi,
-  signer: Signer
+  signer: Signer,
 ) => {
   const mockDeployed = await new Doppelganger__factory(signer).deploy();
   const mock = new Contract(
     await mockDeployed.getAddress(),
     abi,
-    signer
+    signer,
   ) as any as MockContract<C>;
   let firstCall = true;
   mock.setup = async (...calls: MockCallExpectation[]) => {
@@ -51,19 +51,19 @@ export const deployMock = async <C extends BaseContract>(
           const fnSigHash = iface.encodeFunctionData(call.abi, call.inputs);
           const encodedOutputs = iface.encodeFunctionResult(
             call.abi,
-            call.outputs
+            call.outputs,
           );
           // Use a mock function to return the expected return value
           if (firstCall) {
             await mockDeployed.__doppelganger__mockReturns(
               fnSigHash,
-              encodedOutputs
+              encodedOutputs,
             );
             firstCall = false;
           } else {
             await mockDeployed.__doppelganger__queueReturn(
               fnSigHash,
-              encodedOutputs
+              encodedOutputs,
             );
           }
           break;
@@ -74,13 +74,13 @@ export const deployMock = async <C extends BaseContract>(
           if (firstCall) {
             await mockDeployed.__doppelganger__mockReverts(
               fnSigHash,
-              call.reason || ""
+              call.reason || "",
             );
             firstCall = false;
           } else {
             await mockDeployed.__doppelganger__queueRevert(
               fnSigHash,
-              call.reason || ""
+              call.reason || "",
             );
           }
           break;
