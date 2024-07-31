@@ -1,8 +1,23 @@
 {
   "name": "ethers-mock-contract",
+  "description": "Adds a simple mock contract for hardhat-ethers",
+  "keywords": [
+    "ethers",
+    "hardhat",
+    "mock",
+    "contract"
+  ],
   "version": "0.1.0",
   "main": "src/mock-contract.js",
   "license": "MIT",
+  "homepage": "https://github.com/term-finance/ethers-mock-contract",
+  "bugs": {
+    "url": "https://github.com/term-finance/ethers-mock-contract/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github:term-finance/ethers-mock-contract"
+  },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
