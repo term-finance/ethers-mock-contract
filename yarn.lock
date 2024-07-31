@@ -1025,6 +1025,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@term-finance/ethers-mock-contract@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@term-finance/ethers-mock-contract@workspace:."
+  dependencies:
+    "@eslint/js": "npm:^9.8.0"
+    "@nomicfoundation/hardhat-chai-matchers": "npm:^2.0.0"
+    "@nomicfoundation/hardhat-ethers": "npm:^3.0.0"
+    "@nomicfoundation/hardhat-ignition": "npm:^0.15.5"
+    "@nomicfoundation/hardhat-ignition-ethers": "npm:^0.15.0"
+    "@nomicfoundation/hardhat-network-helpers": "npm:^1.0.0"
+    "@nomicfoundation/hardhat-toolbox": "npm:^5.0.0"
+    "@nomicfoundation/hardhat-verify": "npm:^2.0.9"
+    "@nomicfoundation/ignition-core": "npm:^0.15.5"
+    "@typechain/ethers-v6": "npm:^0.5.0"
+    "@typechain/hardhat": "npm:^9.0.0"
+    "@types/chai": "npm:^4.2.0"
+    "@types/eslint": "npm:^9"
+    "@types/eslint__js": "npm:^8.42.3"
+    "@types/mocha": "npm:>=9.1.0"
+    "@types/node": "npm:>=22.0.2"
+    chai: "npm:^4.2.0"
+    eslint: "npm:^9.8.0"
+    ethers: "npm:^6.4.0"
+    hardhat: "npm:^2.22.7"
+    hardhat-gas-reporter: "npm:^2.2.0"
+    prettier: "npm:^3.3.3"
+    solidity-coverage: "npm:^0.8.0"
+    ts-node: "npm:>=8.0.0"
+    typechain: "npm:^8.3.0"
+    typescript: "npm:>=4.5.0"
+    typescript-eslint: "npm:^7.18.0"
+  languageName: unknown
+  linkType: soft
+
 "@tsconfig/node10@npm:^1.0.7":
   version: 1.0.11
   resolution: "@tsconfig/node10@npm:1.0.11"
@@ -2609,40 +2643,6 @@ __metadata:
   checksum: 10c0/8b9487f35ecaa078bf9af6858eba6855fc61c73cc2b90c8c37486fcf94faf4fc1c5cda9758e6769f9ef2658daedaf2c18b366312ac461f8c8a122b392e3041eb
   languageName: node
   linkType: hard
-
-"ethers-mock-contract@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "ethers-mock-contract@workspace:."
-  dependencies:
-    "@eslint/js": "npm:^9.8.0"
-    "@nomicfoundation/hardhat-chai-matchers": "npm:^2.0.0"
-    "@nomicfoundation/hardhat-ethers": "npm:^3.0.0"
-    "@nomicfoundation/hardhat-ignition": "npm:^0.15.5"
-    "@nomicfoundation/hardhat-ignition-ethers": "npm:^0.15.0"
-    "@nomicfoundation/hardhat-network-helpers": "npm:^1.0.0"
-    "@nomicfoundation/hardhat-toolbox": "npm:^5.0.0"
-    "@nomicfoundation/hardhat-verify": "npm:^2.0.9"
-    "@nomicfoundation/ignition-core": "npm:^0.15.5"
-    "@typechain/ethers-v6": "npm:^0.5.0"
-    "@typechain/hardhat": "npm:^9.0.0"
-    "@types/chai": "npm:^4.2.0"
-    "@types/eslint": "npm:^9"
-    "@types/eslint__js": "npm:^8.42.3"
-    "@types/mocha": "npm:>=9.1.0"
-    "@types/node": "npm:>=22.0.2"
-    chai: "npm:^4.2.0"
-    eslint: "npm:^9.8.0"
-    ethers: "npm:^6.4.0"
-    hardhat: "npm:^2.22.7"
-    hardhat-gas-reporter: "npm:^2.2.0"
-    prettier: "npm:^3.3.3"
-    solidity-coverage: "npm:^0.8.0"
-    ts-node: "npm:>=8.0.0"
-    typechain: "npm:^8.3.0"
-    typescript: "npm:>=4.5.0"
-    typescript-eslint: "npm:^7.18.0"
-  languageName: unknown
-  linkType: soft
 
 "ethers@npm:^6.4.0, ethers@npm:^6.7.0":
   version: 6.13.2
