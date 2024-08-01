@@ -21,10 +21,10 @@ yarn add --dev @term-finance/ethers-mock-contract
 
 ## Usage
 
-To use this project, add the following to your `hardhat.config.js`:
+To use this project, import the `deployMock` function:
 
 ```javascript
-require("@term-finance/ethers-mock-contract");
+import { deployMock } from "@term-finance/ethers-mock-contract";
 ```
 
 Then, you can write tests that deploy a mock contract to the blockchain:
