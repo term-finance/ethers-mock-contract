@@ -4,4 +4,4 @@ export {
   MockCallExpectation,
   MockContract,
   deployMock,
-} from "./mock-controller.ts"
+} from "./mock-contract.ts"
