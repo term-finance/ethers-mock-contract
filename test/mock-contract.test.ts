@@ -76,7 +76,7 @@ describe("Doppelganger", function () {
       try {
         await mock.balanceOf(ZeroAddress);
       } catch (error) {
-        expect((error as any).message).to.contain("Mock revert");
+        expect((error as Error).message).to.contain("Mock revert");
       }
     });
 

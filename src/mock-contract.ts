@@ -5,25 +5,35 @@ import {
   Interface,
   InterfaceAbi,
   Signer,
+  solidityPacked,
 } from "ethers";
 import { Doppelganger__factory } from "../typechain-types";
+import { AbiParametersToPrimitiveTypes } from "abitype";
 
-// Matches viem.sh types for a call
-export type MockReadCallExpectation = {
+// Matches viem.sh types for a call. Type parameter T is the type of the function that will be called.
+export type MockReadCallExpectation<T extends FunctionFragment> = {
   kind: "read";
-  abi: FunctionFragment;
-  inputs: any[];
-  outputs: any[];
+  abi: T;
+  // Lookup the
+  inputs: AbiParametersToPrimitiveTypes<T["inputs"]>;
+  outputs: AbiParametersToPrimitiveTypes<T["outputs"]>;
 };
-export type MockRevertExpectation = {
+export type MockWriteCallExpectation<T extends FunctionFragment> = {
+  kind: "write";
+  abi: T;
+  inputs: AbiParametersToPrimitiveTypes<T["inputs"]>;
+};
+export type MockRevertExpectation<T extends FunctionFragment> = {
   kind: "revert";
-  abi: FunctionFragment;
-  inputs: any[];
+  abi: T;
+  inputs: AbiParametersToPrimitiveTypes<T["inputs"]>;
   reason?: string;
 };
-export type MockCallExpectation =
-  | MockReadCallExpectation
-  | MockRevertExpectation;
+export type MockCallExpectation<T extends FunctionFragment = FunctionFragment> =
+
+    | MockReadCallExpectation<T>
+    | MockWriteCallExpectation<T>
+    | MockRevertExpectation<T>;
 
 export type MockContract<C extends BaseContract> = C & {
   setup: (
@@ -40,7 +50,7 @@ export const deployMock = async <C extends BaseContract>(
     await mockDeployed.getAddress(),
     abi,
     signer,
-  ) as any as MockContract<C>;
+  ) as unknown as MockContract<C>;
   let firstCall = true;
   mock.setup = async (...calls: MockCallExpectation[]) => {
     for (const call of calls) {
@@ -68,6 +78,23 @@ export const deployMock = async <C extends BaseContract>(
           }
           break;
         }
+        case "write": {
+          const iface = new Interface([call.abi]);
+          const fnSigHash = iface.encodeFunctionData(call.abi, call.inputs);
+          if (firstCall) {
+            await mockDeployed.__doppelganger__mockReturns(
+              fnSigHash,
+              solidityPacked([], []),
+            );
+            firstCall = false;
+          } else {
+            await mockDeployed.__doppelganger__queueReturn(
+              fnSigHash,
+              solidityPacked([], []),
+            );
+          }
+          break;
+        }
         case "revert": {
           const iface = new Interface([call.abi]);
           const fnSigHash = iface.encodeFunctionData(call.abi, call.inputs);
@@ -88,5 +115,5 @@ export const deployMock = async <C extends BaseContract>(
       }
     }
   };
-  return mock as any as MockContract<C>;
+  return mock as unknown as MockContract<C>;
 };

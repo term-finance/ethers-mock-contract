@@ -1045,6 +1045,7 @@ __metadata:
     "@types/eslint__js": "npm:^8.42.3"
     "@types/mocha": "npm:>=9.1.0"
     "@types/node": "npm:>=22.0.2"
+    abitype: "npm:^1.0.5"
     chai: "npm:^4.2.0"
     eslint: "npm:^9.8.0"
     ethers: "npm:^6.4.0"
@@ -1412,6 +1413,21 @@ __metadata:
     zod:
       optional: true
   checksum: 10c0/d685351a725c49f81bdc588e2f3825c28ad96c59048d4f36bf5e4ef30935c31f7e60b5553c70177b77a9e4d8b04290eea43d3d9c1c2562cb130381c88b15d39f
+  languageName: node
+  linkType: hard
+
+"abitype@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "abitype@npm:1.0.5"
+  peerDependencies:
+    typescript: ">=5.0.4"
+    zod: ^3 >=3.22.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+    zod:
+      optional: true
+  checksum: 10c0/dc954877fba19e2b7a70f1025807d69fa5aabec8bd58ce94e68d1a5ec1697fff3fe5214b4392508db7191762150f19a2396cf66ffb1d3ba8c1f37a89fd25e598
   languageName: node
   linkType: hard
 
