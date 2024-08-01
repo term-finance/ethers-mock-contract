@@ -61,7 +61,17 @@ describe("Doppelganger", function () {
       expect(await mock.balanceOf(ZeroAddress)).to.equal(100n);
     });
 
-    it.skip("Should allow for the mocking of write calls", async function () {});
+    it("Should allow for the mocking of write calls", async function () {
+      const [signer] = await hre.ethers.getSigners();
+      const mock = await deployMock<Erc20Contract>(erc20ABI, signer);
+      await mock.setup({
+        kind: "write",
+        abi: FunctionFragment.from(erc20ABI[2]),
+        inputs: [ZeroAddress, 100n],
+      });
+
+      await mock.transfer(ZeroAddress, 100n);
+    });
 
     it("Should allow for the mocking of reverts on read calls", async function () {
       const [signer] = await hre.ethers.getSigners();
@@ -77,6 +87,17 @@ describe("Doppelganger", function () {
         await mock.balanceOf(ZeroAddress);
       } catch (error) {
         expect((error as Error).message).to.contain("Mock revert");
+      }
+    });
+
+    it("Should fail if the mock is not set up", async function () {
+      const [signer] = await hre.ethers.getSigners();
+      const mock = await deployMock<Erc20Contract>(erc20ABI, signer);
+
+      try {
+        await mock.balanceOf(ZeroAddress);
+      } catch (error) {
+        expect((error as Error).message).to.contain("Mock on the method is not initialized");
       }
     });
 
