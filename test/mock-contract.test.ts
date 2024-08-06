@@ -97,7 +97,9 @@ describe("Doppelganger", function () {
       try {
         await mock.balanceOf(ZeroAddress);
       } catch (error) {
-        expect((error as Error).message).to.contain("Mock on the method is not initialized");
+        expect((error as Error).message).to.contain(
+          "Mock on the method is not initialized",
+        );
       }
     });
 
