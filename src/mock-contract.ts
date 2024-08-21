@@ -41,7 +41,12 @@ export type MockContract<C extends BaseContract> = C & {
   ) => Promise<void>;
 };
 
-export const calculateFnSigHash = (call: MockRevertExpectation<FunctionFragment> | MockReadCallExpectation<FunctionFragment> | MockWriteCallExpectation<FunctionFragment>) => {
+export const calculateFnSigHash = (
+  call:
+    | MockRevertExpectation<FunctionFragment>
+    | MockReadCallExpectation<FunctionFragment>
+    | MockWriteCallExpectation<FunctionFragment>,
+) => {
   const iface = new Interface([call.abi]);
   if (call.inputs === undefined || call.inputs === null) {
     const selector = iface.getFunction(call.abi.name)?.selector;
