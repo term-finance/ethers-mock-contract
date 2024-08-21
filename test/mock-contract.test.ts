@@ -3,6 +3,7 @@ import { deployMock } from "../src/mock-contract";
 import {
   BaseContract,
   FunctionFragment,
+  Interface,
   InterfaceAbi,
   ZeroAddress,
 } from "ethers";
@@ -101,6 +102,18 @@ describe("Doppelganger", function () {
           "Mock on the method is not initialized",
         );
       }
+    });
+
+    it("Should allow undefined call.inputs for read calls", async function () {
+      const [signer] = await hre.ethers.getSigners();
+      const mock = await deployMock<Erc20Contract>(erc20ABI, signer);
+      await mock.setup({
+        kind: "read",
+        abi: Interface.from(erc20ABI).getFunction("balanceOf")!,
+        outputs: [20998n],
+      });
+
+      expect(await mock.balanceOf(ZeroAddress)).to.equal(20998n);
     });
 
     // TODO:
