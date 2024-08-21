@@ -15,18 +15,18 @@ export type MockReadCallExpectation<T extends FunctionFragment> = {
   kind: "read";
   abi: T;
   // Lookup the
-  inputs: AbiParametersToPrimitiveTypes<T["inputs"]>;
+  inputs?: AbiParametersToPrimitiveTypes<T["inputs"]>;
   outputs: AbiParametersToPrimitiveTypes<T["outputs"]>;
 };
 export type MockWriteCallExpectation<T extends FunctionFragment> = {
   kind: "write";
   abi: T;
-  inputs: AbiParametersToPrimitiveTypes<T["inputs"]>;
+  inputs?: AbiParametersToPrimitiveTypes<T["inputs"]>;
 };
 export type MockRevertExpectation<T extends FunctionFragment> = {
   kind: "revert";
   abi: T;
-  inputs: AbiParametersToPrimitiveTypes<T["inputs"]>;
+  inputs?: AbiParametersToPrimitiveTypes<T["inputs"]>;
   reason?: string;
 };
 export type MockCallExpectation<T extends FunctionFragment = FunctionFragment> =
@@ -39,6 +39,18 @@ export type MockContract<C extends BaseContract> = C & {
   setup: (
     ...calls: MockCallExpectation[] // TODO: Infer types
   ) => Promise<void>;
+};
+
+export const calculateFnSigHash = (call: MockRevertExpectation<FunctionFragment> | MockReadCallExpectation<FunctionFragment> | MockWriteCallExpectation<FunctionFragment>) => {
+  const iface = new Interface([call.abi]);
+  if (call.inputs === undefined || call.inputs === null) {
+    const selector = iface.getFunction(call.abi.name)?.selector;
+    if (!selector) {
+      throw new Error("Could not find function selector");
+    }
+    return selector;
+  }
+  return iface.encodeFunctionData(call.abi, call.inputs);
 };
 
 export const deployMock = async <C extends BaseContract>(
@@ -58,7 +70,7 @@ export const deployMock = async <C extends BaseContract>(
         case "read": {
           // Encode function call data using ethers v6:
           const iface = new Interface([call.abi]);
-          const fnSigHash = iface.encodeFunctionData(call.abi, call.inputs);
+          const fnSigHash = calculateFnSigHash(call);
           const encodedOutputs = iface.encodeFunctionResult(
             call.abi,
             call.outputs,
@@ -79,8 +91,7 @@ export const deployMock = async <C extends BaseContract>(
           break;
         }
         case "write": {
-          const iface = new Interface([call.abi]);
-          const fnSigHash = iface.encodeFunctionData(call.abi, call.inputs);
+          const fnSigHash = calculateFnSigHash(call);
           if (firstCall) {
             await mockDeployed.__doppelganger__mockReturns(
               fnSigHash,
@@ -96,8 +107,7 @@ export const deployMock = async <C extends BaseContract>(
           break;
         }
         case "revert": {
-          const iface = new Interface([call.abi]);
-          const fnSigHash = iface.encodeFunctionData(call.abi, call.inputs);
+          const fnSigHash = calculateFnSigHash(call);
           if (firstCall) {
             await mockDeployed.__doppelganger__mockReverts(
               fnSigHash,
