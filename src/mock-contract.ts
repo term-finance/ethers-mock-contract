@@ -47,15 +47,21 @@ export const calculateFnSigHash = (
     | MockReadCallExpectation<FunctionFragment>
     | MockWriteCallExpectation<FunctionFragment>,
 ) => {
+  try {
   const iface = new Interface([call.abi]);
-  if (call.inputs === undefined || call.inputs === null) {
-    const selector = iface.getFunction(call.abi.name)?.selector;
-    if (!selector) {
-      throw new Error("Could not find function selector");
+    if (call.inputs === undefined || call.inputs === null) {
+      const selector = iface.getFunction(call.abi.name)?.selector;
+      if (!selector) {
+        throw new Error("Could not find function selector");
+      }
+      return selector;
     }
-    return selector;
+    return iface.encodeFunctionData(call.abi, call.inputs);
+  } catch (e) {
+    const err = e as Error;
+    err.message = `[${call.abi.format("minimal")}]: ${err.message}`;
+    throw err;
   }
-  return iface.encodeFunctionData(call.abi, call.inputs);
 };
 
 export const deployMock = async <C extends BaseContract>(
