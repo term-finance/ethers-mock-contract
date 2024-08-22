@@ -76,10 +76,17 @@ export const deployMock = async <C extends BaseContract>(
           // Encode function call data using ethers v6:
           const iface = new Interface([call.abi]);
           const fnSigHash = calculateFnSigHash(call);
-          const encodedOutputs = iface.encodeFunctionResult(
-            call.abi,
-            call.outputs,
-          );
+          let encodedOutputs: string;
+          try {
+            encodedOutputs = iface.encodeFunctionResult(
+              call.abi,
+              call.outputs,
+            );
+          } catch (e) {
+            const err = e as Error;
+            err.message = `[${call.abi.selector}]: ${err.message}`;
+            throw err;
+          }
           // Use a mock function to return the expected return value
           if (firstCall) {
             await mockDeployed.__doppelganger__mockReturns(
