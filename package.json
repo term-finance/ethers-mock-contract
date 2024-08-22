@@ -10,8 +10,8 @@
   "version": "0.1.4",
   "main": "src/index.js",
   "exports": {
-    ".": "src/index.js",
-    "./compat/waffle": "src/compat/waffle.js"
+    ".": "./src/index.js",
+    "./compat/waffle": "./src/compat/waffle.js"
   },
   "license": "MIT",
   "homepage": "https://github.com/term-finance/ethers-mock-contract",
