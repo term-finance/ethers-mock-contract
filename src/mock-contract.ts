@@ -48,7 +48,7 @@ export const calculateFnSigHash = (
     | MockWriteCallExpectation<FunctionFragment>,
 ) => {
   try {
-  const iface = new Interface([call.abi]);
+    const iface = new Interface([call.abi]);
     if (call.inputs === undefined || call.inputs === null) {
       const selector = iface.getFunction(call.abi.name)?.selector;
       if (!selector) {
