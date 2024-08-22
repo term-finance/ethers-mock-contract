@@ -1,10 +1,6 @@
 import { expect } from "chai";
 import { deployMockContract } from "../src/compat/waffle";
-import {
-  BaseContract,
-  InterfaceAbi,
-  ZeroAddress,
-} from "ethers";
+import { BaseContract, InterfaceAbi, ZeroAddress } from "ethers";
 import hre from "hardhat";
 
 const erc20ABI = [
@@ -68,7 +64,9 @@ describe("waffle", function () {
       const [signer] = await hre.ethers.getSigners();
       const mock = await deployMockContract<Erc20Contract>(signer, erc20ABI);
 
-      await mock.mock.balanceOf.withArgs(ZeroAddress).revertsWithReason("Custom reason");
+      await mock.mock.balanceOf
+        .withArgs(ZeroAddress)
+        .revertsWithReason("Custom reason");
 
       try {
         await mock.balanceOf(ZeroAddress);
