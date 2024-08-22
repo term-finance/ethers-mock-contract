@@ -84,7 +84,7 @@ export const deployMock = async <C extends BaseContract>(
             );
           } catch (e) {
             const err = e as Error;
-            err.message = `[${call.abi.selector}]: ${err.message}`;
+            err.message = `[${call.abi.format("minimal")}]: ${err.message}`;
             throw err;
           }
           // Use a mock function to return the expected return value
