@@ -78,10 +78,7 @@ export const deployMock = async <C extends BaseContract>(
           const fnSigHash = calculateFnSigHash(call);
           let encodedOutputs: string;
           try {
-            encodedOutputs = iface.encodeFunctionResult(
-              call.abi,
-              call.outputs,
-            );
+            encodedOutputs = iface.encodeFunctionResult(call.abi, call.outputs);
           } catch (e) {
             const err = e as Error;
             err.message = `[${call.abi.format("minimal")}]: ${err.message}`;
