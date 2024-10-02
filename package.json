@@ -40,7 +40,7 @@
     "@types/mocha": ">=9.1.0",
     "@types/node": ">=22.0.2",
     "abitype": "^1.0.5",
-    "chai": "^4.2.0",
+    "chai": "^5.1.1",
     "eslint": "^9.8.0",
     "ethers": "^6.4.0",
     "hardhat": "^2.22.7",
