@@ -1116,6 +1116,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@solidity-parser/parser@npm:^0.19.0":
+  version: 0.19.0
+  resolution: "@solidity-parser/parser@npm:0.19.0"
+  checksum: 10c0/2f4c885bb32ca95ea41120f0d972437b4191d26aa63ea62b7904d075e1b90f4290996407ef84a46a20f66e4268f41fb07fc0edc7142afc443511e8c74b37c6e9
+  languageName: node
+  linkType: hard
+
 "@term-finance/ethers-mock-contract@workspace:.":
   version: 0.0.0-use.local
   resolution: "@term-finance/ethers-mock-contract@workspace:."
@@ -3328,13 +3335,13 @@ __metadata:
   linkType: hard
 
 "hardhat-gas-reporter@npm:^2.2.0":
-  version: 2.2.1
-  resolution: "hardhat-gas-reporter@npm:2.2.1"
+  version: 2.2.2
+  resolution: "hardhat-gas-reporter@npm:2.2.2"
   dependencies:
     "@ethersproject/abi": "npm:^5.7.0"
     "@ethersproject/bytes": "npm:^5.7.0"
     "@ethersproject/units": "npm:^5.7.0"
-    "@solidity-parser/parser": "npm:^0.18.0"
+    "@solidity-parser/parser": "npm:^0.19.0"
     axios: "npm:^1.6.7"
     brotli-wasm: "npm:^2.0.1"
     chalk: "npm:4.1.2"
@@ -3348,7 +3355,7 @@ __metadata:
     viem: "npm:2.7.14"
   peerDependencies:
     hardhat: ^2.16.0
-  checksum: 10c0/b0925488981a72a2fa82e8f07cdee1ae86059c7e241a7e934cb4363603a31dc22f48d59356da598343faa0bf5b43c1a8d21ef49b9d7b828f33993d144c2a0300
+  checksum: 10c0/b487d876950d4111d3359959034819efcc250d468526a0566c67ad5c1b45e180a1943a94828f7b6512319d16f5b0bb620b6ff6dd84c2b7cda5395dd8a841fdd3
   languageName: node
   linkType: hard
 
