@@ -722,15 +722,15 @@ __metadata:
   linkType: hard
 
 "@nomicfoundation/hardhat-ignition-ethers@npm:^0.15.0":
-  version: 0.15.6
-  resolution: "@nomicfoundation/hardhat-ignition-ethers@npm:0.15.6"
+  version: 0.15.11
+  resolution: "@nomicfoundation/hardhat-ignition-ethers@npm:0.15.11"
   peerDependencies:
     "@nomicfoundation/hardhat-ethers": ^3.0.4
-    "@nomicfoundation/hardhat-ignition": ^0.15.6
-    "@nomicfoundation/ignition-core": ^0.15.6
+    "@nomicfoundation/hardhat-ignition": ^0.15.11
+    "@nomicfoundation/ignition-core": ^0.15.11
     ethers: ^6.7.0
     hardhat: ^2.18.0
-  checksum: 10c0/fb896deb640f768140f080f563f01eb2f10e746d334df6066988d41d69f01f737bc296bb556e60d014e5487c43d2e30909e8b57839824e66a8c24a0e9082f2e2
+  checksum: 10c0/20613460258ee316797ff328781e87ff1945967defb4c27f38e1ed25bfef4ac6a6a951c1687216df2169c86568afea0fc171ba27a14ba6876b9263a0653b180b
   languageName: node
   linkType: hard
 
