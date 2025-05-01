@@ -790,21 +790,21 @@ __metadata:
   linkType: hard
 
 "@nomicfoundation/hardhat-verify@npm:^2.0.9":
-  version: 2.0.9
-  resolution: "@nomicfoundation/hardhat-verify@npm:2.0.9"
+  version: 2.0.13
+  resolution: "@nomicfoundation/hardhat-verify@npm:2.0.13"
   dependencies:
     "@ethersproject/abi": "npm:^5.1.2"
     "@ethersproject/address": "npm:^5.0.2"
     cbor: "npm:^8.1.0"
-    chalk: "npm:^2.4.2"
     debug: "npm:^4.1.1"
     lodash.clonedeep: "npm:^4.5.0"
+    picocolors: "npm:^1.1.0"
     semver: "npm:^6.3.0"
     table: "npm:^6.8.0"
     undici: "npm:^5.14.0"
   peerDependencies:
-    hardhat: "*"
-  checksum: 10c0/e70a060dbc657f77c0b55a35ab1707720b2eb7aba96f28084a37fbe82fc41ae54d89f148144af366802112feb6a09823ddd4607cd73af2c497a0035f9679b290
+    hardhat: ^2.0.4
+  checksum: 10c0/391b35211646ed9efd91b88229c09c8baaa688caaf4388e077b73230b36cd7f86b04639625b0e8ebdc070166f49494c3bd32834c31ca4800db0936ca6db96ee2
   languageName: node
   linkType: hard
 
