@@ -808,7 +808,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/ignition-core@npm:^0.15.11":
+"@nomicfoundation/ignition-core@npm:^0.15.11, @nomicfoundation/ignition-core@npm:^0.15.5":
   version: 0.15.11
   resolution: "@nomicfoundation/ignition-core@npm:0.15.11"
   dependencies:
@@ -822,23 +822,6 @@ __metadata:
     lodash: "npm:4.17.21"
     ndjson: "npm:2.0.0"
   checksum: 10c0/39a28a39fa7de37aebde771a2dd9ca9c56474238fdb0c2fd1e7b636e22e66c4f94c8f2d2471921b2ddd2fabcb6c880962b0bb6bedc74f378a0ae8c8ced7ad2da
-  languageName: node
-  linkType: hard
-
-"@nomicfoundation/ignition-core@npm:^0.15.5":
-  version: 0.15.10
-  resolution: "@nomicfoundation/ignition-core@npm:0.15.10"
-  dependencies:
-    "@ethersproject/address": "npm:5.6.1"
-    "@nomicfoundation/solidity-analyzer": "npm:^0.1.1"
-    cbor: "npm:^9.0.0"
-    debug: "npm:^4.3.2"
-    ethers: "npm:^6.7.0"
-    fs-extra: "npm:^10.0.0"
-    immer: "npm:10.0.2"
-    lodash: "npm:4.17.21"
-    ndjson: "npm:2.0.0"
-  checksum: 10c0/d36d6bac290ed6a8bc223d2ad57f7a722b580782e10f56c3cababeca2f890b48183e10a69154ce2ea14b9e0050c9a38e2bc992a70d43c737763a1df2b0954de6
   languageName: node
   linkType: hard
 
