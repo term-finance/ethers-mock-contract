@@ -6,3 +6,5 @@ export {
   MockContract,
   deployMock,
 } from "./mock-contract";
+
+export { type MockContract, deployMockContract } from "./compat/waffle.js";
