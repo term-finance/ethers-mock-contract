@@ -7,4 +7,4 @@ export {
   deployMock,
 } from "./mock-contract";
 
-export { type MockContract, deployMockContract } from "./compat/waffle.js";
+export { type MockContract as MockWaffleContract, deployMockContract } from "./compat/waffle.js";
