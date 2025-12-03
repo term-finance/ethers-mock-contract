@@ -694,15 +694,15 @@ __metadata:
   linkType: hard
 
 "@nomicfoundation/hardhat-ignition-ethers@npm:^0.15.0":
-  version: 0.15.11
-  resolution: "@nomicfoundation/hardhat-ignition-ethers@npm:0.15.11"
+  version: 0.15.17
+  resolution: "@nomicfoundation/hardhat-ignition-ethers@npm:0.15.17"
   peerDependencies:
-    "@nomicfoundation/hardhat-ethers": ^3.0.4
-    "@nomicfoundation/hardhat-ignition": ^0.15.11
-    "@nomicfoundation/ignition-core": ^0.15.11
-    ethers: ^6.7.0
-    hardhat: ^2.18.0
-  checksum: 10c0/20613460258ee316797ff328781e87ff1945967defb4c27f38e1ed25bfef4ac6a6a951c1687216df2169c86568afea0fc171ba27a14ba6876b9263a0653b180b
+    "@nomicfoundation/hardhat-ethers": ^3.1.0
+    "@nomicfoundation/hardhat-ignition": ^0.15.16
+    "@nomicfoundation/ignition-core": ^0.15.15
+    ethers: ^6.14.0
+    hardhat: ^2.26.0
+  checksum: 10c0/f94a2b44fbdd8c216460382ea12f05046a35f1b5e3604d881a6a32381997606b0b1fdeda4c39f6c30063de5db144633e1cfce921e5d6a0aad76621188212051c
   languageName: node
   linkType: hard
 
