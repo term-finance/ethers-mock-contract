@@ -8,3 +8,33 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      hardhat:
+        patterns:
+          - "hardhat"
+          - "hardhat-*"
+          - "@nomicfoundation/*"
+          - "@nomiclabs/*"
+          - "@openzeppelin/hardhat-upgrades"
+          - "solidity-coverage"
+      typechain:
+        patterns:
+          - "typechain"
+          - "@typechain/*"
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@eslint/*"
+          - "@typescript-eslint/*"
+          - "typescript-eslint"
+          - "@types/eslint"
+          - "@types/eslint__js"
+      testing:
+        patterns:
+          - "mocha"
+          - "chai"
+          - "sinon"
+          - "sinon-chai"
+          - "@types/mocha"
+          - "@types/chai"

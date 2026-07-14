@@ -4,6 +4,44 @@
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "autoApprove": true
+    },
+    {
+      "groupName": "hardhat",
+      "matchPackageNames": [
+        "hardhat",
+        "hardhat-**",
+        "@nomicfoundation/**",
+        "@nomiclabs/**",
+        "@openzeppelin/hardhat-upgrades",
+        "solidity-coverage"
+      ]
+    },
+    {
+      "groupName": "typechain",
+      "matchPackageNames": ["typechain", "@typechain/**"]
+    },
+    {
+      "groupName": "eslint",
+      "matchPackageNames": [
+        "eslint",
+        "eslint-**",
+        "@eslint/**",
+        "@typescript-eslint/**",
+        "typescript-eslint",
+        "@types/eslint",
+        "@types/eslint__js"
+      ]
+    },
+    {
+      "groupName": "testing",
+      "matchPackageNames": [
+        "mocha",
+        "chai",
+        "sinon",
+        "sinon-chai",
+        "@types/mocha",
+        "@types/chai"
+      ]
     }
   ]
 }
